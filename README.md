@@ -1,0 +1,1 @@
+![ornek sorgu](./sample.JPG)
