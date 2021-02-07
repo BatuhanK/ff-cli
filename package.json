@@ -1,0 +1,25 @@
+{
+  "name": "ff-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bluebird": "^3.7.2",
+    "colors": "^1.4.0",
+    "lodash": "^4.17.20",
+    "moment": "^2.29.1",
+    "prompt": "^1.1.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
+  },
+  "devDependencies": {
+    "eslint": "^7.18.0"
+  }
+}
