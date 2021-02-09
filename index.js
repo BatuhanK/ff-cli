@@ -4,6 +4,7 @@ const moment = require('moment')
 const rp = require('request-promise')
 const prompt = require('prompt')
 const colors = require('colors/safe')
+const fs = require('fs');
 
 // const startDate = '2021-10-29'
 // const endDate = '2021-12-29'
@@ -11,6 +12,13 @@ const colors = require('colors/safe')
 // const to = 'LWO'
 // const min_stay = 3
 // const max_stay = 15
+
+let travelConfig;
+
+if(process.argv.includes('-c')) {
+  let file = fs.readFileSync('./travel-config.json');
+  travelConfig = JSON.parse(file)
+}
 
 async function searchFlight (from, to, date) {
     const searchData = {
@@ -99,9 +107,11 @@ const schema = {
 
 
 async function main () {
-    prompt.message = colors.green("Question");
-    prompt.start()
-    const {startDate, endDate, from, to, min_stay, max_stay} = await prompt.get(schema);
+    if(!travelConfig) {
+      prompt.message = colors.green("Question");
+      prompt.start()
+    }
+    const {startDate, endDate, from, to, min_stay, max_stay} = travelConfig ? travelConfig : await prompt.get(schema);
 
     const searchDates = []
     const momentStart = moment(startDate)
