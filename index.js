@@ -79,7 +79,7 @@ const schema = {
         },
         endDate: {
             required: true,
-            description: 'When your travel-period starts (YYYY-MM-DD)',
+            description: 'When your travel-period ends (YYYY-MM-DD)',
             default: moment().add(1, 'months').format('YYYY-MM-DD')
         },
         min_stay: {
