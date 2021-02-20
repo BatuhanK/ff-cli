@@ -121,7 +121,7 @@ async function main () {
     const doyEnd = momentEnd.dayOfYear()
 
     for (let i = doyStart; i <= doyEnd; i += 3) {
-        searchDates.push(moment().dayOfYear(i))
+        searchDates.push(moment([momentStart.year(), 0, 1]).add(i, 'd'))
     }
 
     const allResults = _.flatten(await Promise.map(searchDates, searchDate => {
